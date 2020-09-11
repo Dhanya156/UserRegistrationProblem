@@ -3,7 +3,7 @@ echo "WELCOME TO USER REGISTRATION PROBLEM"
 
 read -p "Enter the User password " passwd
 pattern=$(($(tr -d '[[:alnum:]]' <<<$passwd | wc -m)-1))
-if [[ ${#passwd} -ge 8 ]]
+if [[ ${#passwd} -ge 8 && $passwd =~ [[:upper:]] ]]
 then
         echo "valid password"
 else
