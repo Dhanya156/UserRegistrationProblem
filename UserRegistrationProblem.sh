@@ -1,11 +1,11 @@
 #! /bin/bash
 echo "WELCOME TO USER REGISTRATION PROBLEM"
 
-read -p "Enter the Users mobile number " mobNum
-pattern="[0-9]{10}"
-if [[ $mobNum =~ $pattern ]]
+read -p "Enter the User password " passwd
+pattern=$(($(tr -d '[[:alnum:]]' <<<$passwd | wc -m)-1))
+if [[ ${#passwd} -ge 8 ]]
 then
-        echo "user phone number" +91 $mobNum
+        echo "valid password"
 else
-        echo "invalid phone number"
+        echo invalid
 fi
